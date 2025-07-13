@@ -10,6 +10,9 @@ export class UserInfo extends Component
     @property(Node) private contentNode: Node = null!;
     @property(ScrollView) private scrollView : ScrollView = null;
 
+    private userCount : number = 0;
+    private timeoutId : ReturnType<typeof setTimeout> | null = null;
+
     start()
     {
         this.updateUserInfo();
@@ -45,7 +48,7 @@ export class UserInfo extends Component
                 _userInfoString += `--- User ${ _userCount } ---`;
                 _userInfoString += "\nName: " + user.name;
                 _userInfoString += "\nGender: " + user.gender;
-                _userInfoString += "\nMessage: " + user.message;
+                _userInfoString += ( user.message ) ? "\nMessage: " + user.message : "";
                 _userInfoString += "\n\n";
             }
 
@@ -55,16 +58,32 @@ export class UserInfo extends Component
         {
             this.infoLabel.string = "\nThere is no data to display...";
         }
-
-        const _infoLabelTransform = this.infoLabel.node.getComponent( UITransform )!;
-        const _contentTransform = this.contentNode.getComponent( UITransform )!;
-
-        this.scheduleOnce( () =>
+        
+        if (_userCount !== this.userCount)
         {
-            _contentTransform.setContentSize( _contentTransform.width, _infoLabelTransform.height );
-            this.scrollView.scrollToBottom( 0.2, true );
-        },
-        0 );
+            const _infoLabelTransform = this.infoLabel.node.getComponent( UITransform )!;
+            const _contentTransform = this.contentNode.getComponent( UITransform )!;
+
+            this.scheduleOnce( () =>
+            {
+                _contentTransform.setContentSize( _contentTransform.width, _infoLabelTransform.height );
+                this.scrollView.scrollToBottom( 0.2, true );
+            },
+            0 );
+
+            this.userCount = _userCount;
+        }
+
+        if (this.timeoutId !== null)
+        {
+            clearTimeout( this.timeoutId );
+        }
+
+        this.timeoutId = setTimeout( () =>
+        {
+            this.updateUserInfo();
+        }
+        , 5000 );
     }
 
     public clickToDeleteAllUsers()
