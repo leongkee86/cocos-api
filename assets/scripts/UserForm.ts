@@ -1,6 +1,5 @@
 import { _decorator, Button, Component, EditBox, Node, RichText, Toggle } from 'cc';
 import { ApiManager } from './ApiManager';
-import { API_BASE_URL } from '../config';
 import { UserInfo } from './UserInfo';
 const { ccclass, property } = _decorator;
 
@@ -31,7 +30,7 @@ export class UserForm extends Component
         }
 
         ApiManager.post(
-            `${ API_BASE_URL }/add-user`,
+            "add-user",
             {
                 name : _name,
                 gender : _gender,

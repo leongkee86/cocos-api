@@ -1,6 +1,5 @@
 import { _decorator, Component, Label, Node, ScrollView, UITransform } from 'cc';
 import { ApiManager } from './ApiManager';
-import { API_BASE_URL } from '../config';
 const { ccclass, property } = _decorator;
 
 @ccclass('UserInfo')
@@ -21,7 +20,7 @@ export class UserInfo extends Component
     public updateUserInfo()
     {
         ApiManager.get(
-            `${ API_BASE_URL }/users`,
+            "users",
             ( error, result ) =>
             {
                 if (!error)
@@ -89,7 +88,7 @@ export class UserInfo extends Component
     public clickToDeleteAllUsers()
     {
         ApiManager.delete(
-            `${ API_BASE_URL }/delete-all-users`,
+            "delete-all-users",
             ( error, result ) =>
             {
                 if (!error)

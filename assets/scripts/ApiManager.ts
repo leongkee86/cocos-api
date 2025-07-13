@@ -1,18 +1,47 @@
 export class ApiManager
 {
-    // GET with callback
-    public static get( url: string, callback: ( err: any, result?: any ) => void )
+    private static isInitialized : boolean = false;
+    private static configData : any = null;
+
+    private static async initialize()
     {
-        fetch( url )
+        if (!this.isInitialized)
+        {
+            const response = await fetch( location.href.replace( "index.html", "config.json" ) );
+
+            if (!response.ok)
+            {
+                throw new Error( "Failed to load config" );
+            }
+
+            this.configData = await response.json();
+
+            this.isInitialized = true;
+        }
+    }
+
+    public static getBaseUrl() : string
+    {
+        return this.configData.api_base_url;
+    }
+
+    // GET with callback
+    public static async get( url: string, callback: ( err: any, result?: any ) => void )
+    {
+        await this.initialize();
+
+        fetch( `${ this.getBaseUrl() }/${ url }` )
             .then( ( res ) => res.json() )
             .then( ( data ) => callback( null, data ) )
             .catch( ( error ) => callback( error ) );
     }
 
     // POST with callback
-    public static post( url: string, payload: any, callback: ( err: any, result?: any ) => void )
+    public static async post( url: string, payload: any, callback: ( err: any, result?: any ) => void )
     {
-        fetch( url,
+        await this.initialize();
+
+        fetch( `${ this.getBaseUrl() }/${ url }`,
         {
             method: 'POST',
             headers:
@@ -41,9 +70,11 @@ export class ApiManager
     }
 
     // DELETE with callback
-    static delete( url: string, callback: (err: any, result?: any) => void )
+    public static async delete( url: string, callback: (err: any, result?: any) => void )
     {
-        fetch( url,
+        await this.initialize();
+
+        fetch( `${ this.getBaseUrl() }/${ url }`,
         {
             method: 'DELETE',
             headers:
