@@ -36,18 +36,25 @@ export class UserInfo extends Component
         let _users : any[] = result;
         let _userCount = 0;
 
-        for(let user of _users)
+        if (_users.length > 0)
         {
-            _userCount++;
+            for(let user of _users)
+            {
+                _userCount++;
 
-            _userInfoString += `--- User ${ _userCount } ---`;
-            _userInfoString += "\nName: " + user.name;
-            _userInfoString += "\nGender: " + user.gender;
-            _userInfoString += "\nMessage: " + user.message;
-            _userInfoString += "\n\n";
+                _userInfoString += `--- User ${ _userCount } ---`;
+                _userInfoString += "\nName: " + user.name;
+                _userInfoString += "\nGender: " + user.gender;
+                _userInfoString += "\nMessage: " + user.message;
+                _userInfoString += "\n\n";
+            }
+
+            this.infoLabel.string = _userInfoString;
         }
-
-        this.infoLabel.string = _userInfoString;
+        else
+        {
+            this.infoLabel.string = "\nThere is no data to display...";
+        }
 
         const _infoLabelTransform = this.infoLabel.node.getComponent( UITransform )!;
         const _contentTransform = this.contentNode.getComponent( UITransform )!;
