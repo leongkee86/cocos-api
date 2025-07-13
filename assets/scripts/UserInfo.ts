@@ -6,7 +6,7 @@ const { ccclass, property } = _decorator;
 export class UserInfo extends Component
 {
     @property(Label) private infoLabel : Label = null;
-    @property(Node) private contentNode: Node = null!;
+    @property(Node) private contentNode : Node = null!;
     @property(ScrollView) private scrollView : ScrollView = null;
 
     private userCount : number = 0;
