@@ -7,14 +7,14 @@ export class ApiManager
     {
         if (!this.isInitialized)
         {
-            const response = await fetch( location.href.replace( "index.html", "config.json" ) );
+            const _response = await fetch( location.href.replace( "/index.html", "" ) + "/config.json" );
 
-            if (!response.ok)
+            if (!_response.ok)
             {
                 throw new Error( "Failed to load config" );
             }
 
-            this.configData = await response.json();
+            this.configData = await _response.json();
 
             this.isInitialized = true;
         }
