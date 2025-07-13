@@ -58,7 +58,7 @@
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 119
+      "__id__": 122
     },
     "_id": "ca9fcb94-82be-48c1-b25b-d33d67015855"
   },
@@ -269,18 +269,21 @@
       },
       {
         "__id__": 108
+      },
+      {
+        "__id__": 116
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 116
+        "__id__": 119
       },
       {
-        "__id__": 117
+        "__id__": 120
       },
       {
-        "__id__": 118
+        "__id__": 121
       }
     ],
     "_prefab": null,
@@ -439,7 +442,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -750,
-      "y": 420,
+      "y": 400,
       "z": 0
     },
     "_lrot": {
@@ -487,7 +490,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": -40,
       "z": 0
     },
     "_lrot": {
@@ -499,8 +502,8 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 1.5,
-      "y": 1.5,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_mobility": 0,
@@ -525,8 +528,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 347.4365234375,
-      "height": 50.4
+      "width": 559.8984375,
+      "height": 100.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -545,16 +548,16 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "_lineHeight": 40,
-    "_string": "Add a new user",
+    "_lineHeight": 80,
+    "_string": "<outline color=#000000 width=5>Add a new user</outline>",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
-    "_fontSize": 50,
+    "_fontSize": 80,
     "_fontColor": {
       "__type__": "cc.Color",
       "r": 255,
-      "g": 255,
-      "b": 255,
+      "g": 210,
+      "b": 66,
       "a": 255
     },
     "_maxWidth": 0,
@@ -3070,7 +3073,7 @@
       "__type__": "cc.Color",
       "r": 255,
       "g": 255,
-      "b": 255,
+      "b": 100,
       "a": 255
     },
     "_spriteFrame": {
@@ -3316,6 +3319,9 @@
     "messageInputBox": {
       "__id__": 69
     },
+    "submitButton": {
+      "__id__": 78
+    },
     "resultLabel": {
       "__id__": 82
     },
@@ -3380,7 +3386,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 520,
-      "y": 50,
+      "y": 30,
       "z": 0
     },
     "_lrot": {
@@ -3990,7 +3996,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 600,
-      "height": 50.4
+      "height": 90.39999999999999
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4019,7 +4025,7 @@
       "b": 0,
       "a": 255
     },
-    "_string": "Loading...",
+    "_string": "\nLoading...",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 40,
@@ -4369,8 +4375,8 @@
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
-      "g": 255,
-      "b": 255,
+      "g": 80,
+      "b": 80,
       "a": 255
     },
     "_spriteFrame": {
@@ -4471,6 +4477,108 @@
     "customEventData": ""
   },
   {
+    "__type__": "cc.Node",
+    "_name": "Header",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "_parent": {
+      "__id__": 7
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 117
+      },
+      {
+        "__id__": 118
+      }
+    ],
+    "_prefab": null,
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 480,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_mobility": 0,
+    "_layer": 33554432,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "54ZkpY7JlEVbFDeMJRksAb"
+  },
+  {
+    "__type__": "cc.UITransform",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 116
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 1584.814453125,
+      "height": 88.2
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_id": "90RU8YI9hKFbvFYFkYrcqg"
+  },
+  {
+    "__type__": "cc.RichText",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 116
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "_lineHeight": 70,
+    "_string": "<color=FFFF00><b>API Demo</b></color> created by <color=FFFF00>Lim Leong Kee</color> <color=ADD8E6>(Email: leongkee86@gmail.com)</color>.",
+    "_horizontalAlign": 1,
+    "_verticalAlign": 1,
+    "_fontSize": 50,
+    "_fontColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_maxWidth": 0,
+    "_fontFamily": "Arial",
+    "_font": null,
+    "_isSystemFontUsed": true,
+    "_userDefinedFont": null,
+    "_cacheMode": 0,
+    "_imageAtlas": null,
+    "_handleTouchEvent": true,
+    "_id": "0cfTNialNBOZzAaHRrM/Rv"
+  },
+  {
     "__type__": "cc.UITransform",
     "_name": "",
     "_objFlags": 0,
@@ -4541,28 +4649,28 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 120
-    },
-    "shadows": {
-      "__id__": 121
-    },
-    "_skybox": {
-      "__id__": 122
-    },
-    "fog": {
       "__id__": 123
     },
-    "octree": {
+    "shadows": {
       "__id__": 124
     },
-    "skin": {
+    "_skybox": {
       "__id__": 125
     },
-    "lightProbeInfo": {
+    "fog": {
       "__id__": 126
     },
-    "postSettings": {
+    "octree": {
       "__id__": 127
+    },
+    "skin": {
+      "__id__": 128
+    },
+    "lightProbeInfo": {
+      "__id__": 129
+    },
+    "postSettings": {
+      "__id__": 130
     },
     "bakedWithStationaryMainLight": false,
     "bakedWithHighpLightmap": false

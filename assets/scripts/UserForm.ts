@@ -1,4 +1,4 @@
-import { _decorator, Component, EditBox, Node, RichText, Toggle, url } from 'cc';
+import { _decorator, Button, Component, EditBox, Node, RichText, Toggle } from 'cc';
 import { ApiManager } from './ApiManager';
 import { API_BASE_URL } from '../config';
 import { UserInfo } from './UserInfo';
@@ -11,12 +11,15 @@ export class UserForm extends Component
     @property(Node) private genderToggleGroup : Node = null;
     @property(Node) private defaultGenderToggle : Toggle = null;
     @property(EditBox) private messageInputBox : EditBox = null;
+    @property(Button) private submitButton : Button = null;
     @property(RichText) private resultLabel : RichText = null;
 
     @property(UserInfo) private userInfo : UserInfo = null;
 
     public clickToSubmit()
     {
+        this.submitButton.interactable = false;
+
         let _name : string = this.nameInputBox.string;
         let _gender : string = "";
         let _message : string = this.messageInputBox.string;
@@ -42,7 +45,7 @@ export class UserForm extends Component
                 }
                 else
                 {
-                    this.resultLabel.string = "<color=FFFF00>Submission successful.</color>";
+                    this.resultLabel.string = "<color=00FF00>Submission successful.</color>";
 
                     this.nameInputBox.string = "";
                     this.messageInputBox.string = "";
@@ -52,6 +55,8 @@ export class UserForm extends Component
 
                     this.userInfo.updateUserInfo();
                 }
+
+                this.submitButton.interactable = true;
             }
         );
     }
